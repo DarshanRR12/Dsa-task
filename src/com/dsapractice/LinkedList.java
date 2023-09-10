@@ -21,18 +21,15 @@ public class LinkedList {
     private int length;
 
     public LinkedList() {
-        Node newNode = new Node();
-        head = newNode;
-        tail = newNode;
-    }
-
-    public LinkedList(int value) {
-        Node newNode = new Node(value);
-        head = newNode;
-        tail = newNode;
+        Node head;
+        Node value;
     }
 
     public void printList() {
+        if (head == null) {
+            System.out.println("the list is empty");
+            return;
+        }
         Node temp = head.next;
         while (temp != null) {
             System.out.print(temp.value + (temp.next != null ? " -> " : "\n"));
@@ -69,6 +66,10 @@ public class LinkedList {
     }
 
     public void deleteAllOccurrences(int dataToDelete) {
+        if (head == null) {
+            System.out.println("list is empty, nothing to delete");
+            return;
+        }
         Node currentNode = head;
         Node previousNode = null;
 
